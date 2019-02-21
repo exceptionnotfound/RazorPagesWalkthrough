@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using RazorPagesWalkthrough.Web.DataContext;
+using RazorPagesWalkthrough.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,8 +18,8 @@ namespace RazorPagesWalkthrough.Web.Helpers
 
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new BoardGamesDBContext(
-                serviceProvider.GetRequiredService<DbContextOptions<BoardGamesDBContext>>()))
+            using (var context = new BoardGamesDbContext(
+                serviceProvider.GetRequiredService<DbContextOptions<BoardGamesDbContext>>()))
             {
                 // Look for any board games already in database.
                 if (context.BoardGames.Any())

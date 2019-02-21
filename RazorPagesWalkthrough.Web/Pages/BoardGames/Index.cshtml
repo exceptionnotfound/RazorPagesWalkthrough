@@ -1,0 +1,33 @@
+﻿@page
+@model RazorPagesWalkthrough.Web.Pages.BoardGames.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(x => x.BoardGames[0].Title)</th>
+            <th>@Html.DisplayNameFor(x => x.BoardGames[0].PublishingCompany)</th>
+            <th>@Html.DisplayNameFor(x => x.BoardGames[0].MinPlayers)</th>
+            <th>@Html.DisplayNameFor(x => x.BoardGames[0].MaxPlayers)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var game in Model.BoardGames)
+        {
+            <tr>
+                <td>@game.Title</td>
+                <td>@game.PublishingCompany</td>
+                <td>@game.MinPlayers</td>
+                <td>@game.MaxPlayers</td>
+                <td>
+                    Links will go here
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
